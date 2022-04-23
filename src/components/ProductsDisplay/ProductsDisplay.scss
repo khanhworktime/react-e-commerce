@@ -1,0 +1,8 @@
+
+@import '../../variable';
+
+.products-display{
+    width: 100vw;
+    padding-inline: clamp(50px, 10vw, 200px);
+    background-color: #000;
+}

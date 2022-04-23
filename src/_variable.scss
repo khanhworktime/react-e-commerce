@@ -1,0 +1,28 @@
+
+// Font 
+$font-normal: -apple-system, 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
+$font-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+monospace;
+
+// Font size: 16px = 1 rem;
+$fs-basic: 16px;
+$fs-h1: clamp(4rem, 5vw, 8rem);
+$fs-h2: clamp(2rem, 2.5vw, 5rem);
+
+// Font weight
+$fw-light: 300;
+$fw-normal: 400;
+$fw-semibold: 500;
+$fw-bold: 700;
+$fw-black: 900;
+
+// Color: Green, navy and beige
+$c-green: #4E944F;
+$c-light-green: #83BD75;
+$c-lighter-green: #B4E197;
+$c-beige: #E9EFC0;
+
+$c-navy: #525E75;
+$c-navy-green: #78938A;

@@ -1,0 +1,65 @@
+@import "_variable.scss";
+
+//HTML and Body Define
+html{
+  font-family: $font-normal;
+  font-size: $fs-basic;
+  font-weight: $fw-normal;
+  transition: all .2s ease-in-out;
+}
+body {
+  margin: 0;
+  font-family: $font-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//Heading tag define
+h1{
+  font-size: $fs-h1!important;
+  font-weight: $fw-black!important;
+}
+
+h2{
+  font-size: $fs-h2!important;
+  font-weight: $fw-bold!important;
+}
+
+//Text  define
+code {
+  font-family: $font-mono;
+}
+
+//A tag reset
+a{
+  text-decoration: none!important;
+  color: inherit!important;
+}
+a:hover{
+  color: inherit!important;
+}
+
+// Fake a button tag 
+a.button{
+  padding: 5px 1rem;
+  color: #fff;
+  background-color: $c-light-green;
+  &.border-only{
+    background-color: #fff;
+    border: 1px solid $c-light-green;
+  }
+  &:hover, &[active]{
+    background-color: $c-lighter-green;
+    border: 1px solid $c-lighter-green;
+  }
+  &[active]{
+    font-weight: $fw-bold;
+  }
+}
+
+//Ul tag reset
+ul{
+  list-style-type: none;
+}
+
+//Img that contain icon

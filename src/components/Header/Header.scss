@@ -1,0 +1,25 @@
+
+@import "../../variable";
+
+.header{
+    padding-inline: clamp(50px, 10vw, 200px);
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+    h1{
+        text-align: center;
+        em{
+            color: $c-light-green;
+        }
+        margin-bottom: 2rem;
+    }
+    &::after{
+        content: "";
+        display: block;
+        width: 50%;
+        height: 2px;
+        background: $c-navy;
+        border-radius: 5px;
+        margin: 0 auto;
+    }
+}
+
