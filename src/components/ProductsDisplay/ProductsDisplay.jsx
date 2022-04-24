@@ -1,7 +1,5 @@
 
 import './ProductsDisplay.scss';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 
 export default function ProductsDisplay(props){
     let tag = props.tag;

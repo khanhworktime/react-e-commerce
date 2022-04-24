@@ -1,7 +1,5 @@
 
 import './App.scss';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import Catagories from './components/Catagories/Catagories';
