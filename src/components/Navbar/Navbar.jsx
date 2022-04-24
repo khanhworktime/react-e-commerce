@@ -1,3 +1,6 @@
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import "./Navbar.scss";
 import Cart from "bootstrap-icons/icons/basket.svg";
 // import {Container, Row, Col} from "react-bootstrap"
