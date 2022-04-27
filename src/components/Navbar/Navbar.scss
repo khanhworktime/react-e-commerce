@@ -5,6 +5,7 @@
     position: fixed;
     top:0;
     background: $c-green;
+    z-index: 1000;
     .nav-fullsize{
         width: 100%;
         padding: 1rem 3rem;

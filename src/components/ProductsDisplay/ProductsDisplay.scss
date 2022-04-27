@@ -2,7 +2,9 @@
 @import '../../variable';
 
 .products-display{
-    width: 100vw;
-    padding-inline: clamp(50px, 10vw, 200px);
-    background-color: #000;
+    max-width: 100vw;
+    padding-inline: clamp(50px, 10vw, 150px);
+    .product-cover{
+        padding: 1.3rem;
+    }
 }

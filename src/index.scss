@@ -43,14 +43,18 @@ a:hover{
 a.button{
   padding: 5px 1rem;
   color: #fff;
-  background-color: $c-light-green;
+  background-color: $c-lighter-green;
+  width: fit-content;
+  transition: all .2s ease-in-out;
   &.border-only{
     background-color: #fff;
     border: 1px solid $c-light-green;
   }
   &:hover, &[active]{
-    background-color: $c-lighter-green;
-    border: 1px solid $c-lighter-green;
+    background-color: $c-light-green;
+    &.border-only{
+      border: 1px solid $c-lighter-green;
+    }
   }
   &[active]{
     font-weight: $fw-bold;
