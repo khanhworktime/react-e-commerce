@@ -40,17 +40,18 @@ a:hover{
 }
 
 // Fake a button tag 
-a.button{
+button{
   padding: 5px 1rem;
-  color: #fff;
+  color: #000;
   background-color: $c-lighter-green;
   width: fit-content;
   transition: all .2s ease-in-out;
+  border:none;
   &.border-only{
     background-color: #fff;
     border: 1px solid $c-light-green;
   }
-  &:hover, &[active]{
+  &:hover, &[current]{
     background-color: $c-light-green;
     &.border-only{
       border: 1px solid $c-lighter-green;

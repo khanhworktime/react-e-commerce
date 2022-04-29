@@ -11,7 +11,7 @@ function Product(props) {
         <span className="title">{title}</span>
         <span className="price">${price}</span>
         <span className="rating">{rating.rate} 🌟</span>
-        <a href="# " className="button">Add to cart</a>
+        <button href="# " className="button">Add to cart</button>
         </>
     </div>)
 }
