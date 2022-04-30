@@ -1,0 +1,24 @@
+
+@import"../../../_variable.scss";
+
+.cart-product{
+    padding: 2rem 0;
+    position: relative;
+    img{
+        object-fit: contain;
+        max-width: 120px;
+        margin-bottom: 2rem;
+        margin: 0;
+    }
+    .amount{
+        font-weight: $fw-bold;
+    }
+    &::after{
+        content: "";
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        background-color: $c-lighter-green;
+    }
+}

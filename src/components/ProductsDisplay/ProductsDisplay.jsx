@@ -1,13 +1,16 @@
 
 import './ProductsDisplay.scss';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import productsApi from '../../api/productApi';
 import Product from './Products/Product'
 
-export default function ProductsDisplay({categories}){
+function ProductsDisplay({categories, cart}){
     const [category, setCategory] = useState("all");
     const [products, setProduct] = useState([]);
+    const [cartProducts, setCartProducts] = useState([]);
     const method = (category === "all") ? "getAll":"getCategory";
+    cart.products = cartProducts;
+    
     useEffect(()=>{
         const fetchProducts = async () => {
             try {
@@ -28,6 +31,11 @@ export default function ProductsDisplay({categories}){
             if (i === tagIndex) e.setAttribute("current","");
         })
     }
+
+    const cartUpdateHandler = (product) => {
+        setCartProducts([...cartProducts, product]);
+    }
+
     return(
         <>
             <div className="categories flex-wrap d-flex justify-content-around">
@@ -41,7 +49,7 @@ export default function ProductsDisplay({categories}){
                     {products.map((product, i)=>{
                         return(
                             <div className="product-cover col-xs-12 col-sm-6 col-lg-4 col-xl-3" key={i}>
-                                <Product props={{...product}}/>
+                                <Product onUpdateCart={cartUpdateHandler} product={product}/>
                             </div>
                         )
                     })}
@@ -49,3 +57,5 @@ export default function ProductsDisplay({categories}){
         </>
     )
 };
+
+export default memo(ProductsDisplay);

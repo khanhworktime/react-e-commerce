@@ -47,18 +47,27 @@ button{
   width: fit-content;
   transition: all .2s ease-in-out;
   border:none;
-  &.border-only{
+  &.no-layout{
+    background-color: transparent!important;
+    color: #fff;
+  }
+  &.border-only, &.secondary{
     background-color: #fff;
     border: 1px solid $c-light-green;
   }
-  &:hover, &[current]{
+  &[current], &.primary{
+    background-color: $c-dark-green!important;
+    color: #fff;
+  }
+  &:hover{
     background-color: $c-light-green;
+    color: #fff;
     &.border-only{
       border: 1px solid $c-lighter-green;
     }
   }
   &[active]{
-    font-weight: $fw-bold;
+    font-weight: $fw-black;
   }
 }
 

@@ -1,17 +1,16 @@
 
 import './Product.scss';
 
-function Product(props) {
-    const {image, title, category, rating, price} = props.props;
+function Product({product, onUpdateCart}) {
     return(
     <div className="products d-flex flex-column justify-content-between">
-        <img src={image} alt="" />
+        <img src={product.image} alt="" />
         <>
-        <span className="category">{category}</span>
-        <span className="title">{title}</span>
-        <span className="price">${price}</span>
-        <span className="rating">{rating.rate} 🌟</span>
-        <button href="# " className="button">Add to cart</button>
+        <span className="category">{product.category}</span>
+        <span className="title">{product.title}</span>
+        <span className="price">${product.price}</span>
+        <span className="rating">{product.rating.rate} 🌟</span>
+        <button onClick={()=> onUpdateCart(product)} className="button">Add to cart</button>
         </>
     </div>)
 }

@@ -8,6 +8,14 @@ import categoryApi from './api/categoryApi';
 
 function App() {
   const [categories, setCategories] = useState([]);
+  const cart = {
+    products: [],
+    getItemsTotal: () => cart.products.length,
+    productsDistinct: () => [...new Set(cart.products)],
+    getItemAmount: (id) => cart.products.filter((product) => product.id === id).length,
+    total: () => cart.products.reduce((total, product) => total + product.price, 0),
+    removeItem: (id) => cart.products = cart.products.filter((product) => product.id !== id)
+  }
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -21,12 +29,12 @@ function App() {
       }
     }
     fetchCategories();
-  }, [])
+  }, []);
   return (
     <div className="App">
-      <Navbar />
+      <Navbar cart={cart} />
       <Header />
-      <ProductsDisplay categories={categories} />
+      <ProductsDisplay cart={cart} categories={categories} />
     </div>
   );
 }
