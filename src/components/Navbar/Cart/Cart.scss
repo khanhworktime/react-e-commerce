@@ -1,4 +1,13 @@
 
+@import '../../../_variable.scss';
+
 .cart-detail{
     padding: 2.5rem;
+    .tb-header{
+        font-size: $fs-small;
+        color: $c-navy-green;
+        &>.col{
+            width: fit-content;
+        }
+    }
 }

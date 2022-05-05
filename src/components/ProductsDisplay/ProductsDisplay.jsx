@@ -7,10 +7,12 @@ import Product from './Products/Product'
 function ProductsDisplay({categories, cart}){
     const [category, setCategory] = useState("all");
     const [products, setProduct] = useState([]);
-    const [cartProducts, setCartProducts] = useState([]);
+    const [cartProducts, setCartProducts] = useState(cart.products);
     const method = (category === "all") ? "getAll":"getCategory";
+    
     cart.products = cartProducts;
     
+    //Fetch product list data
     useEffect(()=>{
         const fetchProducts = async () => {
             try {
@@ -23,6 +25,7 @@ function ProductsDisplay({categories, cart}){
         fetchProducts();
     },[category, method])
 
+    //Handdling the category changed
     const categoryChangeHandler = (tag, tagIndex) => {
         setCategory(tag);
         const allCategoryElements = document.querySelectorAll(".categories>*");
@@ -32,8 +35,23 @@ function ProductsDisplay({categories, cart}){
         })
     }
 
+    //Add cart item handler - If product not in cart yet, add product + amount property, else product property ++
     const cartUpdateHandler = (product) => {
-        setCartProducts([...cartProducts, product]);
+        const productID = product.id;
+        let isAdded = false;
+        const cartUpdate = (product, cartProducts) => {
+            cartProducts.forEach((product, i) => {
+                if (productID === product.id) {
+                    cartProducts[i].amount += 1;
+                    isAdded = true;
+                }
+            })
+            if (!isAdded) cartProducts.push({...product, amount: 1});
+        }
+
+        cartUpdate(product, cartProducts);
+
+        setCartProducts([...cartProducts]);
     }
 
     return(

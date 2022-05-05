@@ -10,7 +10,7 @@ function Product({product, onUpdateCart}) {
         <span className="title">{product.title}</span>
         <span className="price">${product.price}</span>
         <span className="rating">{product.rating.rate} 🌟</span>
-        <button onClick={()=> onUpdateCart(product)} className="button">Add to cart</button>
+        <button onClick={() => onUpdateCart(product)} className="button">Add to cart</button>
         </>
     </div>)
 }

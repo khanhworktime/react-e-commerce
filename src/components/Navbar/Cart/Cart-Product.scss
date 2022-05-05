@@ -21,4 +21,17 @@
         height: 1px;
         background-color: $c-lighter-green;
     }
+    &:last-child::after, &:first-child::before{
+        content: "";
+        width: 100%;
+        position: absolute;
+        height: 1px;
+        background-color: $c-navy;
+    }
+    &:last-child::after{
+        bottom: 0;
+    }
+    &:first-child::before{
+        top: 0;
+    }
 }
