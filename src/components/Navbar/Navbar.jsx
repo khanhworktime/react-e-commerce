@@ -3,13 +3,21 @@ import "./Navbar.scss";
 import CartIcon from "bootstrap-icons/icons/basket.svg";
 import Modal from "react-bootstrap/Modal";
 import Cart from "./Cart/Cart";
-import {useState, memo} from "react";
+import {useState, memo, useEffect} from "react";
 
 function Navbar({cart}) {
     const [show, setShow] = useState(false);
     const displayCartHandler = (cart)=>{
         setShow(true);
     }
+    useEffect(()=>{
+        window.addEventListener("scroll", ()=>{
+            const navbar = document.querySelector(".navbar");
+            const offset = window.scrollY;
+            if(offset === 0) navbar.style["padding"] = "1rem";
+            else navbar.style["padding"] = "0";
+        })
+    });
     return (
         <div className="navbar">
             <div className="nav-fullsize d-flex justify-content-between align-items-center">
@@ -27,7 +35,7 @@ function Navbar({cart}) {
                 <Modal.Header closeButton>
                     <Modal.Title>Cart</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body style={{maxHeight: "72vh", overflow: "scroll", overflowX:"hidden"}}>
                     <Cart cart={cart} />
                 </Modal.Body>
                 <Modal.Footer>

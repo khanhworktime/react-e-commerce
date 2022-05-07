@@ -1,30 +1,15 @@
 
 import './App.scss';
-import React, { useEffect, useState, useRef } from 'react';
+import { Routes, Route, Link } from 'react-router-dom'
+import { useEffect, useState, useContext } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Header from './components/Header/Header';
 import ProductsDisplay from './components/ProductsDisplay/ProductsDisplay';
 import categoryApi from './api/categoryApi';
+import ProductDetail from "./routes/ProductDetail/ProductDetail"
 
-function App() {
+function App({ cart }) {
   const [categories, setCategories] = useState([]);
-  const cart = {
-    products: [],
-    totalItems: () => cart.products.length,
-    total: () => cart.products.reduce((total, product) => total + product.price, 0),
-    isEmpty: () => (cart.totalItems() === 0),
-    removeItem: (id) => cart.products = cart.products.filter((product) => {
-      if (product.id === id)
-        if (product.amount === 1) return false;
-        else { product.amount -= 1; return true; }
-      else return true;
-    }),
-    addItem: (id) => cart.products.find((product) => {
-      const cond = (product.id === id)
-      if (cond) product.amount += 1;
-      return cond;
-    })
-  }
   useEffect(() => {
     const fetchCategories = async () => {
       try {

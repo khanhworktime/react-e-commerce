@@ -3,6 +3,7 @@ import './ProductsDisplay.scss';
 import { useState, useEffect, memo } from 'react';
 import productsApi from '../../api/productApi';
 import Product from './Products/Product'
+import { calculateNewValue } from '@testing-library/user-event/dist/utils';
 
 function ProductsDisplay({categories, cart}){
     const [category, setCategory] = useState("all");
@@ -39,6 +40,11 @@ function ProductsDisplay({categories, cart}){
     const cartUpdateHandler = (product) => {
         const productID = product.id;
         let isAdded = false;
+
+        //Bug right here when try to delete an item
+        //the cartProducts state is not update yet. 
+        //This is why need a pre variable to carry cart.products variable
+        const preCart = cart.products;
         const cartUpdate = (product, cartProducts) => {
             cartProducts.forEach((product, i) => {
                 if (productID === product.id) {
@@ -49,9 +55,8 @@ function ProductsDisplay({categories, cart}){
             if (!isAdded) cartProducts.push({...product, amount: 1});
         }
 
-        cartUpdate(product, cartProducts);
-
-        setCartProducts([...cartProducts]);
+        cartUpdate(product, preCart);
+        setCartProducts([...preCart]);
     }
 
     return(
@@ -66,7 +71,7 @@ function ProductsDisplay({categories, cart}){
             <div className="products-display d-flex flex-wrap">
                     {products.map((product, i)=>{
                         return(
-                            <div className="product-cover col-xs-12 col-sm-6 col-lg-4 col-xl-3" key={i}>
+                            <div className="product-cover col-xs-12 col-sm-6 col-lg-4 col-xl-3" id={`product-${i}`} key={i}>
                                 <Product onUpdateCart={cartUpdateHandler} product={product}/>
                             </div>
                         )

@@ -2,13 +2,17 @@
 
 .navbar{
     width: 100vw;
+    min-height: 50px;
+    padding: 1rem;
     position: fixed;
     top:0;
+    left:0;
     background: $c-green;
     z-index: 1000;
+    transition: all .1s ease;
     .nav-fullsize{
         width: 100%;
-        padding: 1rem 3rem;
+        padding: .5rem 3rem;
         .menu{
             margin: 0;
             .menu-item{

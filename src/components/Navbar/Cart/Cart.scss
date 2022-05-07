@@ -3,11 +3,15 @@
 
 .cart-detail{
     padding: 2.5rem;
-    .tb-header{
-        font-size: $fs-small;
+    
+    .tb-header, .tb-footer{
         color: $c-navy-green;
-        &>.col{
-            width: fit-content;
-        }
+        font-size: $fs-small;
+    }
+    .tb-footer{
+        margin-top: 2rem;
+        font-size: 1rem;
+        font-weight: $fw-bold;
+        color: $c-navy-green;
     }
 }
