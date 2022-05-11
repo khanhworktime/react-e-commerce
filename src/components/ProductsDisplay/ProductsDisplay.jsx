@@ -2,8 +2,8 @@
 import './ProductsDisplay.scss';
 import { useState, useEffect, memo } from 'react';
 import productsApi from '../../api/productApi';
-import Product from './Products/Product'
-import { calculateNewValue } from '@testing-library/user-event/dist/utils';
+import Product from './Products/Product';
+import Loading from '../Loading/Loading'
 
 function ProductsDisplay({categories, cart}){
     const [category, setCategory] = useState("all");
@@ -69,13 +69,14 @@ function ProductsDisplay({categories, cart}){
                 )}
             </div>
             <div className="products-display d-flex flex-wrap">
-                    {products.map((product, i)=>{
+                    {(products.length !== 0) ? products.map((product, i)=>{
                         return(
                             <div className="product-cover col-xs-12 col-sm-6 col-lg-4 col-xl-3" id={`product-${i}`} key={i}>
                                 <Product onUpdateCart={cartUpdateHandler} product={product}/>
                             </div>
                         )
-                    })}
+                    }):(<Loading />)
+                }
             </div>
         </>
     )

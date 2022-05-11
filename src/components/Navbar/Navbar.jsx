@@ -4,6 +4,7 @@ import CartIcon from "bootstrap-icons/icons/basket.svg";
 import Modal from "react-bootstrap/Modal";
 import Cart from "./Cart/Cart";
 import {useState, memo, useEffect} from "react";
+import {Link} from "react-router-dom"
 
 function Navbar({cart}) {
     const [show, setShow] = useState(false);
@@ -23,7 +24,7 @@ function Navbar({cart}) {
             <div className="nav-fullsize d-flex justify-content-between align-items-center">
                 <img src="./favicon.svg" alt="" width="64px"/>
                 <ul className="menu d-flex flex-row align-items-center">
-                    <li className="menu-item"><a href="# ">Home</a></li>
+                    <li className="menu-item"><Link to="/">Home</Link></li>
                     <li className="menu-item"><a href="# ">Category</a></li>
                     <li className="menu-item"><a href="# ">About</a></li>
                     <li className="menu-item">

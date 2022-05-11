@@ -12,6 +12,7 @@ body {
   font-family: $font-normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 //Heading tag define
@@ -76,4 +77,16 @@ ul{
   list-style-type: none;
 }
 
-//Img that contain icon
+//Scroll line configs
+::-webkit-scrollbar{
+  width: 10px;
+}
+::-webkit-scrollbar-track{
+  background: transparent !important;
+}
+::-webkit-scrollbar-thumb{
+  background: $c-navy-green;
+  &:hover{
+    background: $c-navy;
+  }
+}

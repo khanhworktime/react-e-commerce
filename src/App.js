@@ -1,12 +1,10 @@
-
-import './App.scss';
-import { Routes, Route, Link } from 'react-router-dom'
-import { useEffect, useState, useContext } from 'react';
-import Navbar from './components/Navbar/Navbar';
-import Header from './components/Header/Header';
-import ProductsDisplay from './components/ProductsDisplay/ProductsDisplay';
-import categoryApi from './api/categoryApi';
-import ProductDetail from "./routes/ProductDetail/ProductDetail"
+import "./App.scss";
+import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
+import ProductsDisplay from "./components/ProductsDisplay/ProductsDisplay";
+import categoryApi from "./api/categoryApi";
+import Footer from "./components/Footer/Footer";
 
 function App({ cart }) {
   const [categories, setCategories] = useState([]);
@@ -21,7 +19,7 @@ function App({ cart }) {
       } catch (err) {
         console.error(err);
       }
-    }
+    };
     fetchCategories();
   }, []);
   return (
@@ -29,6 +27,7 @@ function App({ cart }) {
       <Navbar cart={cart} />
       <Header />
       <ProductsDisplay cart={cart} categories={categories} />
+      <Footer />
     </div>
   );
 }

@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import ProductDetail from './routes/ProductDetail/ProductDetail';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import productApi from './api/productApi';
 
-
+//Create cart
 const cart = {
   products: [],
   totalItems: () => cart.products.length,
@@ -24,7 +25,6 @@ const cart = {
     return cond;
   })
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

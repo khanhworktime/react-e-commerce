@@ -2,5 +2,29 @@
 @import "../../variable.scss";
 
 .product-detail-view{
-    padding: 10rem 150px;
+    padding: 12rem clamp(50px, 5vw, 150px);
+    .content{
+        max-width: max(40vw, 350px);
+        &>*{
+            margin-bottom: 1rem;
+        }
+        .category{
+            text-transform: capitalize;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+        .price{
+            font-size: 1.5rem;
+            font-weight: $fw-bold;
+            color: $c-green;
+        }
+    }
+    img{
+        object-fit: contain;
+        max-height: clamp(50px, 60vh, 500px);
+        margin-bottom: 2rem;
+    }
+    .product-detail{
+        margin-bottom: 2rem;
+    }
 }
